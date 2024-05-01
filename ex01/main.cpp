@@ -26,7 +26,7 @@ void subjectTest()
 	{
 
         // Crear un vector de enteros
-/*         std::vector<int> nbr;
+        std::vector<int> nbr;
         nbr.push_back(1);
         nbr.push_back(2);
         nbr.push_back(3);
@@ -42,9 +42,9 @@ void subjectTest()
         // Imprimir el rango más corto y más largo
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
-		sp.printVector(); */
+		sp.printVector();
 
-		Span sp = Span(5);
+/* 		Span sp = Span(5);
 		sp.addNumber(6);
 		sp.addNumber(3);
 		sp.addNumber(17);
@@ -52,7 +52,7 @@ void subjectTest()
 		sp.addNumber(11); 
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl; 
-		sp.printVector();
+		sp.printVector(); */
 		
     }
 	

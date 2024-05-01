@@ -79,8 +79,8 @@ int Span::compareMax()
         {
             max = temp;
         }
-		std::cout << v[i] << "x" << v[i+1] << std::endl;
-		std::cout << "[max]" << max << std::endl;
+/* 		std::cout << v[i] << "x" << v[i+1] << std::endl;
+		std::cout << "[max]" << max << std::endl; */
 
 		i++;
 	}
@@ -89,22 +89,19 @@ int Span::compareMax()
 
 int Span::compareMin()
 {
-	int i = 0;
+	size_t i = 0;
 	int temp = 0;
 	int min = std::numeric_limits<int>:: max() ;
 
-	int vsize = v.size();
-	vsize = vsize - 1;
-
-	while (i < vsize)
+	while (i < v.size() && v[i+1])
 	{        
 		temp = std::abs(v[i] - v[i + 1]);
         if (temp < min)
         {
             min = temp;
         }
-		std::cout << v[i] << "|" << v[i+1] << std::endl;
-		std::cout << ">min<" << min << std::endl;
+/* 		std::cout << v[i] << "|" << v[i+1] << std::endl;
+		std::cout << ">min<" << min << std::endl; */
 		i++;
 	}
 	return(min);
