@@ -2,33 +2,70 @@
 
 Span::Span()
 {
-
+    nbr = 0;
+    max = 0;
+    min = 0;
+    n   = 0;
 }
-Span::Span(int n)
+void Span::printVector()
 {
-	for (unsigned int i = 0; i < n; ++i) 
+	size_t i =0;
+	while(i < s.size())
 	{
-		s.push(i); // o cualquier valor que desees
+        std::cout << s[i] << " ";
+		i++;
 	}
+    std::cout << std::endl;
+}
+Span::Span(unsigned int k)
+{
+    nbr = 0;
+    max = 0;
+    min = 999999;
+    n   = 0;
+    for (unsigned int i = 0; i < k; ++i) 
+    {
+        s.push_back(0); // o cualquier valor que desees
+    }
+    printVector();
 }
 Span::~Span()
 {
 
 }
-void addNumber(int n)
+void Span::addNumber(int n)
 {
-
+    s.push_back(n);
 }
-int shortestSpan()
+int Span::shortestSpan()
 {
-
+	compareAndSet();
+	std::cout << "min = " ; 
+	return(min);
 }
-int longestSpan()
+int Span::longestSpan()
 {
-
+	compareAndSet();
+	printVector();
+	std::cout << "max = " ;
+	return(max);
 }
 
-
+void Span::compareAndSet()
+{
+    for (size_t i = 0; i < s.size() - 1; ++i)
+    {
+        int diff = std::abs(s[i] - s[i + 1]);
+        if (diff > max)
+        {
+            max = diff;
+        }
+        if (diff < min)
+        {
+            min = diff;
+        }
+    }
+}
 
 
 

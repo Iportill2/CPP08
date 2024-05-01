@@ -1,19 +1,25 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
-# include <iostream>
 # include <stack>
+# include <vector>
+# include <iostream>
 
 class Span
 {
 	private:
-		std::stack<int> s;
-		unsigned int s;
+		std::vector<int> s;
+		unsigned int nbr;
 		int n;
+		int max;
+		int min;
 	public:
 
 		Span();
-		Span(int n);
+		Span(unsigned int n);
 		~Span();
+
+void	printVector();
+void	compareAndSet();
 
 	void addNumber(int n);
 	int shortestSpan();
