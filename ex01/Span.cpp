@@ -72,14 +72,15 @@ int Span::compareMax()
 	size_t i = 0;
 	int temp = 0;
 	int max = 0;
-	while (i < v.size())
+	while (i < v.size() && v[i+1])
 	{        
-		temp = std::abs(v[i] - v[i + 1]);
+		temp = std::abs(v[i] - v[i+1]);
         if (temp > max)
         {
             max = temp;
         }
-		//std::cout << "[max]" << max << std::endl;
+		std::cout << v[i] << "x" << v[i+1] << std::endl;
+		std::cout << "[max]" << max << std::endl;
 
 		i++;
 	}
@@ -88,66 +89,28 @@ int Span::compareMax()
 
 int Span::compareMin()
 {
-	size_t i = 0;
+	int i = 0;
 	int temp = 0;
 	int min = std::numeric_limits<int>:: max() ;
-	while (i < v.size())
+
+	int vsize = v.size();
+	vsize = vsize - 1;
+
+	while (i < vsize)
 	{        
 		temp = std::abs(v[i] - v[i + 1]);
         if (temp < min)
         {
             min = temp;
         }
-		//std::cout << ">min<" << min << std::endl;
+		std::cout << v[i] << "|" << v[i+1] << std::endl;
+		std::cout << ">min<" << min << std::endl;
 		i++;
 	}
 	return(min);
 }
 
-/*
-#ifndef SPAN_HPP
-#define SPAN_HPP
 
-#include <vector>
-#include <string>
-#include <iostream>
-
-class Span
-{
-private:
-	Span(void);
-	unsigned int N;
-	std::vector<long int> v;
-public:
-	Span(unsigned int n);
-	~Span(void);
-	Span& operator=(const Span & other);
-	Span(const Span& copy);
-
-	void addNumber(int n);
-	void addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last);
-	long int shortestSpan();
-	long long int longestSpan();
-
-
-	class MaxElements: public std::exception
-	{
-		virtual const char* what() const throw()
-		{
-			return ("The span reached the maximum number of elements");
-		}
-	};
-	class MinElements: public std::exception
-	{
-		virtual const char* what() const throw()
-		{
-			return ("The span need minum 2 elements");
-		}
-	};
-};
-
-#endif
-*/
 
 
 
