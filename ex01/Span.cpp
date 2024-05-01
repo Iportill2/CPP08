@@ -2,70 +2,155 @@
 
 Span::Span()
 {
-    nbr = 0;
-    max = 0;
-    min = 0;
-    n   = 0;
 }
-void Span::printVector()
+Span::Span(unsigned int n)
 {
-	size_t i =0;
-	while(i < s.size())
-	{
-        std::cout << s[i] << " ";
-		i++;
-	}
-    std::cout << std::endl;
-}
-Span::Span(unsigned int k)
-{
-    nbr = 0;
-    max = 0;
-    min = 999999;
-    n   = 0;
-    for (unsigned int i = 0; i < k; ++i) 
-    {
-        s.push_back(0); // o cualquier valor que desees
-    }
-    printVector();
+	N = n;
+
 }
 Span::~Span()
 {
 
 }
-void Span::addNumber(int n)
+Span & Span::operator=(const Span & other)
 {
-    s.push_back(n);
+	if (this == &other)
+    	return *this;
+    N = other.N;
+    v = other.v;
+    return *this;
+}
+Span::Span(const Span &copy): N(copy.N), v(copy.v)
+{
+
+}
+void Span::printVector()
+{
+	size_t i =0;
+	std::cout << "Vector contain: ";
+	while(i < v.size())
+	{
+        std::cout << v[i] << " ";
+		i++;
+	}
+    std::cout << std::endl;
+}
+void Span::addNumber(unsigned int n)
+{
+	if(v.size() == N)
+		throw MaxElements();
+    v.push_back(n);
+}
+void Span::addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last)
+{
+    if (v.size() + (unsigned int)(last - first) - 1 >= N)
+        throw MaxElements();
+	while (first != last) 
+	{
+		v.push_back(*first);
+		++first;
+	}
 }
 int Span::shortestSpan()
 {
-	compareAndSet();
+	if(v.size() < 2)
+		throw MinElements();
+	int min = compareMin();
 	std::cout << "min = " ; 
 	return(min);
 }
 int Span::longestSpan()
 {
-	compareAndSet();
-	printVector();
+	if(v.size() < 2)
+		throw MinElements();
+	int max = compareMax();
 	std::cout << "max = " ;
 	return(max);
 }
-
-void Span::compareAndSet()
+int Span::compareMax()
 {
-    for (size_t i = 0; i < s.size() - 1; ++i)
-    {
-        int diff = std::abs(s[i] - s[i + 1]);
-        if (diff > max)
+	size_t i = 0;
+	int temp = 0;
+	int max = 0;
+	while (i < v.size())
+	{        
+		temp = std::abs(v[i] - v[i + 1]);
+        if (temp > max)
         {
-            max = diff;
+            max = temp;
         }
-        if (diff < min)
-        {
-            min = diff;
-        }
-    }
+		//std::cout << "[max]" << max << std::endl;
+
+		i++;
+	}
+	return(max);
 }
+
+int Span::compareMin()
+{
+	size_t i = 0;
+	int temp = 0;
+	int min = std::numeric_limits<int>:: max() ;
+	while (i < v.size())
+	{        
+		temp = std::abs(v[i] - v[i + 1]);
+        if (temp < min)
+        {
+            min = temp;
+        }
+		//std::cout << ">min<" << min << std::endl;
+		i++;
+	}
+	return(min);
+}
+
+/*
+#ifndef SPAN_HPP
+#define SPAN_HPP
+
+#include <vector>
+#include <string>
+#include <iostream>
+
+class Span
+{
+private:
+	Span(void);
+	unsigned int N;
+	std::vector<long int> v;
+public:
+	Span(unsigned int n);
+	~Span(void);
+	Span& operator=(const Span & other);
+	Span(const Span& copy);
+
+	void addNumber(int n);
+	void addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last);
+	long int shortestSpan();
+	long long int longestSpan();
+
+
+	class MaxElements: public std::exception
+	{
+		virtual const char* what() const throw()
+		{
+			return ("The span reached the maximum number of elements");
+		}
+	};
+	class MinElements: public std::exception
+	{
+		virtual const char* what() const throw()
+		{
+			return ("The span need minum 2 elements");
+		}
+	};
+};
+
+#endif
+*/
+
+
+
 
 
 
