@@ -18,9 +18,12 @@ void subjectTest()
 		sp.addNumber(9);
 		sp.addNumber(11);
 		//sp.addNumber(12);
+		std::cout << "//////////////////////////////\n";
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl; 
+		std::cout << "//////////////////////////////\n";
 		sp.printVector();//funcion para ver el contenido del vector
+		std::cout << "//////////////////////////////\n";
     }
 	catch(const std::exception& e)
 	{
@@ -50,9 +53,12 @@ void ownTest()
         sp.addNumber(nbr.begin(),nbr.end());
 
         // Imprimir el rango más corto y más largo
+		std::cout << "*****************************\n";
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
+		std::cout << "*****************************\n";
 		sp.printVector();
+		std::cout << "*****************************\n";
     }
 	catch(const std::exception& e)
 	{

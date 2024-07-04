@@ -1,9 +1,3 @@
-/* #include "easyfind.hpp" */
-/* int main()
-{
-	std::cout << "pepe" << std::endl;
-} */
-
 
 #include "easyfind.hpp"
 
@@ -49,7 +43,9 @@ int	main()
 	std::cout << "\n";
 
 
-
+	std::cout << "************************************" << std::endl; 
+	std::cout << " >>> v.erase(v.begin() + 3);  <<<" << std::endl;
+	std::cout << "************************************" << std::endl; 
 	// Borrar un elemento en la posición especificada
 	v.erase(v.begin() + 3);
 	
@@ -72,6 +68,9 @@ int	main()
 	std::cout << "Vector elements 'v.erase(v.begin() + 3)': ";
 	for (std::vector<int>::iterator it = v.begin(); it != v.end(); ++it)
     	std::cout << *it << " ";
+
+
+    std::cout << "\n";
     std::cout << "\n";
 
 	
@@ -81,17 +80,17 @@ int	main()
 	v.push_back(4);
 	v.push_back(5);
 
-	l.push_back(1);
-	l.push_back(2);
-	l.push_back(3);
-	l.push_back(4);
-	l.push_back(5);
+	l.push_back(10);
+	l.push_back(20);
+	l.push_back(30);
+	l.push_back(40);
+	l.push_back(50);
 
-	d.push_back(1);
-	d.push_back(2);
-	d.push_back(3);
-	d.push_back(4);
-	d.push_back(5);
+	d.push_back(11);
+	d.push_back(21);
+	d.push_back(31);
+	d.push_back(41);
+	d.push_back(51);
 
 	//m.insert(7);
 
@@ -99,14 +98,21 @@ int	main()
     s.push(8);
     s.push(7);
 
+
+	std::cout << "\ndeque elements: ";
+	for (std::deque<int>::iterator it = d.begin(); it != d.end(); ++it)
+    	std::cout << *it << " ";
+	std::cout << "\nlist elements: ";
+	for (std::list<int>::iterator it = l.begin(); it != l.end(); ++it)
+    	std::cout << *it << " ";
     // Imprimir y eliminar el elemento superior
-/* 	std::cout << "elementos dentro del stack:" ;
+	std::cout << "\nelementos dentro del stack:" ;
     while (!s.empty()) 
 	{
         std::cout << ' ' << s.top();
         s.pop();
 	}
-	std::cout << std::endl; */
+	std::cout << std::endl;
 	try
 	{
 		std::cout << std::endl << "list in position 5 is = " << *easyfind(l, 5) << std::endl;
