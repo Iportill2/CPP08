@@ -1,9 +1,6 @@
-NAME = Mutated_abomination
+NAME = mutant_stack
 
-
-SRCS = 	main.cpp 
-		
-
+SRCS = main.cpp
 
 CC = c++
 RM = rm -f

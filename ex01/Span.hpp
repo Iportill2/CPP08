@@ -1,20 +1,16 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
-# include <stack>
+
 # include <vector>
 # include <iostream>
-# include <limits>
-#include <cstdlib>
+# include <exception>
 
 class Span
 {
 	private:
-			Span();
-			unsigned int N;
-			std::vector<int> v;
-
-/* 			int min;
-			int max; */
+		Span();
+		unsigned int N;
+		std::vector<int> v;
 	public:
 
 			Span(unsigned int n);
@@ -23,9 +19,6 @@ class Span
 			~Span();
 
 	void	printVector();
-	int		compareMax();
-	int		compareMin();
-
 	void 	addNumber(unsigned int n);
 	void	addNumber(std::vector<int>::iterator first, std::vector<int>::iterator last);
 	int 	shortestSpan();
